@@ -1,6 +1,7 @@
 # %% [markdown]
 # 
-
+import pip
+i
 # %%
 import pandas as pd
 import sqlalchemy as sql
@@ -85,7 +86,7 @@ def test_cmp1():
     return pd.DataFrame(report_data),pd.DataFrame(mis_data)
 
 # %%
-test_cmp1()[1]
+assert test_cmp1()[1],'Data mismatch observed'
 
 # %% [markdown]
 # # Approach 2: The Side-by-Side Column Matrix (Pandas Native)
