@@ -86,7 +86,7 @@ def test_cmp1():
     return pd.DataFrame(report_data),pd.DataFrame(mis_data)
 
 # %%
-assert test_cmp1()[1],'Data mismatch observe'
+assert test_cmp1()[1],'Data mismatch observed'
 
 # %% [markdown]
 # # Approach 2: The Side-by-Side Column Matrix (Pandas Native)
