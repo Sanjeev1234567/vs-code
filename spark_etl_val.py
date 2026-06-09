@@ -11,7 +11,7 @@ spark=SparkSession.builder\
     .appName('ETL Validations')\
     .getOrCreate()
 
-print(spark.sparkContext.uiWebUrl)
+print(f"Spark URL:{spark.sparkContext.uiWebUrl}")
 
 # %% [markdown]
 # # Create dataFrame
