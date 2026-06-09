@@ -7,19 +7,17 @@ from pyspark.sql.functions  import col
 # # Spark Session
 
 # %%
-def test_Sparksession():
-    spark=SparkSession.builder\
+spark=SparkSession.builder\
      .appName('ETL Validations')\
         .getOrCreate()
-    print(f"Spark URL:{spark.sparkContext.uiWebUrl}")
-    assert False, f"{spark.sparkContext.uiWebUrl}"
+print(f"Spark URL:{spark.sparkContext.uiWebUrl}")
 
 # %% [markdown]
 # # Create dataFrame
 
 # %%
 def readData(file_name):
-    df=test_Sparksession().read.format('csv')\
+    df=spark.read.format('csv')\
     .option('header','true')\
     .option('inferSchema','true')\
     .load(f'C:/Users/ADMIN/Documents/{file_name}.txt')
