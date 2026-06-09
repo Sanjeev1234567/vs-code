@@ -19,7 +19,7 @@ def test_Sparksession():
 
 # %%
 def readData(file_name):
-    df=spark.read.format('csv')\
+    df=test_Sparksession().read.format('csv')\
     .option('header','true')\
     .option('inferSchema','true')\
     .load(f'C:/Users/ADMIN/Documents/{file_name}.txt')
