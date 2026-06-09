@@ -7,17 +7,18 @@ from pyspark.sql.functions  import col
 # # Spark Session
 
 # %%
-spark=SparkSession.builder\
-    .appName('ETL Validations')\
-    .getOrCreate()
-
-print(f"Spark URL:{spark.sparkContext.uiWebUrl}")
+def test_Sparksession():
+    spark=SparkSession.builder\
+     .appName('ETL Validations')\
+        .getOrCreate()
+    print(f"Spark URL:{spark.sparkContext.uiWebUrl}")
+    assert False, f"{spark.sparkContext.uiWebUrl}"
 
 # %% [markdown]
 # # Create dataFrame
 
 # %%
-def test_readData(file_name):
+def readData(file_name):
     df=spark.read.format('csv')\
     .option('header','true')\
     .option('inferSchema','true')\
@@ -25,8 +26,8 @@ def test_readData(file_name):
     return df
 
 # %%
-dfs=test_readData('src_customer')
-dft=test_readData('tgt_customer')
+dfs=readData('src_customer')
+dft=readData('tgt_customer')
 
 def test_countCheck():
     dfs_c=dfs.count()
