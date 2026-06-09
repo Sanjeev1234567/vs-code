@@ -11,7 +11,7 @@ def test_Sparksession():
     spark=SparkSession.builder\
      .appName('ETL Validations')\
         .getOrCreate()
-    print(f"Spark URL :{spark.sparkContext.uiWebUrl}")
+    print(f"Spark URL:{spark.sparkContext.uiWebUrl}")
     assert False, f"{spark.sparkContext.uiWebUrl}"
 
 # %% [markdown]
