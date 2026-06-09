@@ -4,6 +4,7 @@ from pytest import *
 from pyspark.sql.functions  import col 
 import pytest_check as pc
 import pandas as pd
+from pyspark.sql import Row
 
 # %% [markdown]
 # # Spark Session
@@ -40,7 +41,7 @@ def test_countCheck():
     assert dfs_c != dft_c ,f"Count Mismatch! Source: {dfs_c} rows, Target: {dft_c} rows."
 
 # %%
-test_countCheck()
+#test_countCheck()
 
 # %% [markdown]
 # # Null Check
@@ -52,7 +53,7 @@ def test_null_check():
     assert null_count==0 ,'Null Data found'
 
 # %%
-test_countCheck()
+#test_countCheck()
 
 # %% [markdown]
 # # Src Dup
@@ -65,7 +66,7 @@ def test_srcDup ():
     
 
 # %%
-test_srcDup()
+#test_srcDup()
 
 # %% [markdown]
 # # tgt Dups
@@ -78,13 +79,12 @@ def test_tgtDup ():
     
 
 # %%
-test_tgtDup()
+#test_tgtDup()
 
 # %% [markdown]
 # # Metadata Check
 
 # %%
-from pyspark.sql import Row
 def test_metadata():
     df_col=spark.createDataFrame([Row(dfs.columns),Row(dft.columns)])
     assert list(dfs.columns)==list(dft.columns) , 'Metadata mismatch'
@@ -92,7 +92,7 @@ def test_metadata():
     return df_col
 
 # %%
-test_metadata()
+#test_metadata()
 
 # %% [markdown]
 # # Datatypes Check
@@ -104,6 +104,6 @@ def test_dataTypeVal():
     assert list(dfs.dtypes)==list(dft.dtypes),f'Datatypes mismatch:{mis_dtype_src}-->{mis_dtype_tgt}'
 
 # %%
-test_dataTypeVal()
+#test_dataTypeVal()
 
 
